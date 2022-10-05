@@ -27,6 +27,6 @@ This image shows the view from the CMS. Thanks to storyblok we can develop diffe
 
 > For detailed explanation on how Nuxt 3 works, check out the [Nuxt 3 docs](https://v3.nuxtjs.org/guide/concepts/introduction).
 
-> I found this Nuxt Course complete and very interessing. so ... <a target="_blank" href="https://www.udemy.com/course/the-nuxt-3-bootcamp-the-complete-developer-guide/">Click meeeee</a>
+> I found this Nuxt Course complete and very interessing. so ... click <a target="_blank" href="https://www.udemy.com/course/the-nuxt-3-bootcamp-the-complete-developer-guide/"> here 👌 </a>
 
 > If you want to learn, how you can go headless with <a target="_blank" href="https://www.storyblok.com/tc/nuxtjs">Nuxt ... ✨</a>
