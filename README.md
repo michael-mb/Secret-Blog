@@ -1,14 +1,6 @@
-# Getting Started - Nuxt 3 edition
+# Nuxt + Storyblok
 
-This is an example `Hello World` project built with Storyblok and Nuxt 3.
-
-> To get better understanding of this project and how it works, read our [Getting Started guide](https://www.storyblok.com/docs/guide/getting-started).
-
-## Stackblitz 
-
-[Edit on Stackblitz](https://stackblitz.com/edit/nuxt-3-sdk-demo)
-
-
+This is an example of a headless CMS `integration` project with the Nuxt Javascript Framework
 ## Configuration Steps
 
 1. Create new Space in Storyblok
@@ -28,5 +20,9 @@ $ npm run dev
 # build for production
 $ npm run build
 ```
+
+![example](readme-images/1.png)
+
+This image shows the view from the CMS. Thanks to storyblok we can develop different components and integrate them into the CMS. This gives the possibility to a non-developer to manage the content of the pages without having to write code.
 
 > For detailed explanation on how Nuxt 3 works, check out the [Nuxt 3 docs](https://v3.nuxtjs.org/guide/concepts/introduction).
