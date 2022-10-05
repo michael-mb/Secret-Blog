@@ -1,4 +1,4 @@
-# Nuxt + Storyblok
+# Nuxt + Storyblok = 😱
 
 This is an example of a headless CMS `integration` project with the Nuxt Javascript Framework
 ## Configuration Steps
