@@ -26,3 +26,7 @@ $ npm run build
 This image shows the view from the CMS. Thanks to storyblok we can develop different components and integrate them into the CMS. This gives the possibility to a non-developer to manage the content of the pages without having to write code.
 
 > For detailed explanation on how Nuxt 3 works, check out the [Nuxt 3 docs](https://v3.nuxtjs.org/guide/concepts/introduction).
+
+> I found this Nuxt Course complete and very interessing. so ... <a target="_blank" href="https://www.udemy.com/course/the-nuxt-3-bootcamp-the-complete-developer-guide/">Click meeeee</a>
+
+> <a target="_blank" href="https://www.storyblok.com/tc/nuxtjs">Going Headless with Nuxt</a>
