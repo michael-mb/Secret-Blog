@@ -20,6 +20,11 @@ export default defineNuxtConfig({
       {type: 'text/javascript', src: '/js/jquery.waypoints.min.js'},
       {type: 'text/javascript', src: '/js/jquery.stellar.min.js'},
       {type: 'text/javascript', src: '/js/main.js'},
+      {type: 'text/javascript', src: 'https://cdn.jsdelivr.net/npm/vue@3'},
+      {type: 'text/javascript', src: 'https://cdn.jsdelivr.net/npm/vue-demi'},
+      {type: 'text/javascript', src: 'https://cdn.jsdelivr.net/npm/@vuelidate/core'},
+      {type: 'text/javascript', src: 'https://cdn.jsdelivr.net/npm/@vuelidate/validators'},
+
     ]
   }
 })
