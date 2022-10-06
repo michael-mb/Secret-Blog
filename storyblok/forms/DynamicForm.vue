@@ -6,6 +6,8 @@
           <h1>{{blok.title}}</h1>
         </div>
       </div>
+
+      {{contactForm}}
       <form :action="blok.endpoint" method="post" :id="blok._uid" @submit="formSubmit">
       <div class="row blog-entries">
         <div class="col-md-12 col-lg-8 main-content">
@@ -13,30 +15,29 @@
           <div class="row" v-for="input in blok.inputs" :key="input._uid" v-editable="input">
             <div v-if="input.type === 'text'" class="col-md-12 form-group">
               <label :for="input.label">{{input.label}}</label>
-              <input :id="input.name" :name="input.name" class="form-control" type="text" :placeholder="input.placeholder" v-model="contactForm.name">
+              <input :id="input.name" :name="input.name" class="form-control" :type="input.text" :placeholder="input.placeholder" v-model="contactForm[input.name]">
             </div>
 
-            <div v-if="input.type === 'number'" class="col-md-12 form-group">
+            <div v-if="input.type === 'number' && input.name !== 'age'" class="col-md-12 form-group" v-editable="input">
               <label :for="input.label">{{input.label}}</label>
-              <input :id="input.name"  :name="input.name" class="form-control" type="number"  v-model="contactForm.age" :placeholder="input.placeholder">
+              <input :id="input.name"  :name="input.name" class="form-control" type="number"  v-model="contactForm[input.name]" :placeholder="input.placeholder">
+            </div>
+
+            <div v-if="input.type === 'number' && input.name === 'age'" class="col-md-12 form-group" v-editable="input">
+              <label :for="input.label">{{input.label}}</label>
+              <input :id="input.name"  :name="input.name" class="form-control" type="number"  v-model="contactForm[input.name]" :placeholder="input.placeholder">
               <p v-if="!validAge(contactForm.age)" class="error">⛔️ {{input.validators[0].errorMessage}}</p>
             </div>
 
-            <div v-if="input.type === 'email'" class="col-md-12 form-group">
+            <div v-if="input.type === 'email'" class="col-md-12 form-group" v-editable="input">
               <label :for="input.label">{{input.label}}</label>
-              <input :id="input.name" :name="input.name" class="form-control" type="email" v-model="contactForm.email" :placeholder="input.placeholder">
+              <input :id="input.name" :name="input.name" class="form-control" type="email" v-model="contactForm[input.name]" :placeholder="input.placeholder">
               <p v-if="!validEmail(contactForm.email)" class="error">{{input.validators[0].errorMessage}}</p>
             </div>
 
-            <div v-if="input.type === 'tel'" class="col-md-12 form-group">
+            <div v-if="input.type === 'description'" class="col-md-12 form-group" v-editable="input">
               <label :for="input.label">{{input.label}}</label>
-              <input :id="input.name" :name="input.name" class="form-control" type="text" v-model="contactForm.phone" :placeholder="input.placeholder">
-
-            </div>
-
-            <div v-if="input.type === 'description'" class="col-md-12 form-group">
-              <label :for="input.label">{{input.label}}</label>
-              <textarea :id="input.name" :name="input.name" class="form-control" v-model="contactForm.description">{{input.placeholder}}</textarea>
+              <textarea :id="input.name" :name="input.name" class="form-control" v-model="contactForm[input.name]">{{input.placeholder}}</textarea>
             </div>
           </div>
 
@@ -56,14 +57,16 @@
 const props = defineProps({ blok: Object });
 const router = useRouter()
 
+const contactForm = ref({})
 
-const contactForm = ref({
-  name : "",
-  age : "18",
-  email : "",
-  phone : "",
-  description: ""
+props.blok.inputs.forEach( elem => {
+  if(elem.default)
+    contactForm.value[elem.name] = elem.default
+  else
+    contactForm.value[elem.name] = ""
 })
+
+
 
 function validEmail(email){
   const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
