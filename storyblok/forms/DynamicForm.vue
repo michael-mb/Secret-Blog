@@ -19,7 +19,7 @@
             <div v-if="input.type === 'number'" class="col-md-12 form-group">
               <label :for="input.label">{{input.label}}</label>
               <input :id="input.name"  :name="input.name" class="form-control" type="number"  v-model="contactForm.age" :placeholder="input.placeholder">
-              <p v-if="validAge(contactForm.age)" class="error">⛔️ {{input.validators[0].errorMessage}}</p>
+              <p v-if="!validAge(contactForm.age)" class="error">⛔️ {{input.validators[0].errorMessage}}</p>
             </div>
 
             <div v-if="input.type === 'email'" class="col-md-12 form-group">
@@ -66,18 +66,23 @@ const contactForm = ref({
 })
 
 function validEmail(email){
-  if(email === "")
-    return true
   const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-  return email.match(validRegex)
+  return email.match(validRegex) !== null
 }
 
 function validAge(age){
-  return age < 18
+  return age >= 18
 }
 
 function formSubmit(e){
   e.preventDefault()
+
+  if(!validEmail(contactForm.value.email))
+    return
+
+  if(!validAge(contactForm.value.age))
+    return
+
   $fetch(props.blok.endpoint, {
     method: 'POST',
     body: {
