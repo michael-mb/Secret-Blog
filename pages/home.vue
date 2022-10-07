@@ -4,4 +4,5 @@
 
 <script setup>
 const story = await useStoryblok('home', { version: 'draft' }, { customParent: 'http://localhost:3000'})
+//test
 </script>
